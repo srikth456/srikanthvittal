@@ -8,6 +8,7 @@
 
 h1 {
   flex: 1;
+  font-weight: 600;
 }
 
 .header {
@@ -17,6 +18,7 @@ h1 {
   background-color: $pink-accent;
   color: $white;
   padding: $spacing-3xs $spacing-xs;
+  font-weight: 600;
 
   button {
     padding: 0 $spacing-xs;
@@ -59,6 +61,7 @@ main {
     right: $spacing-xxs;
     padding: 0;
     min-width: 36px;
+    font-weight: 600;
   }
 }
 

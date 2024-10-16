@@ -59,4 +59,7 @@ export class BookSearchComponent implements OnInit {
       this.store.dispatch(clearSearch());
     }
   }
+  trackById(index: number, book: Book) {
+    return book.id; 
+  }
 }

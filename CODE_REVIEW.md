@@ -1,5 +1,5 @@
 1. In libs/books folder for Ngrx (Instaed of _state) need to change for better understanding 
-example: ── store/          
+example: ── state/          
                 ├── actions/    
                 ├── effects/    
                 ├── reducers/   
@@ -12,6 +12,7 @@ searchBooksFailure functions error type should be more specific instaed of any,l
   Can use swicth map for handle multiple init action-
 4. Layout is not responsive but libs\books\feature\src\lib\book-search\book-search.component.html can use <ul> and <li> instaed of <div>
 5. Instant search is missing or else we can have related searches or links on typing
+5. Error Handling during the search and error message can be improved.
 
 Light House Issues
 

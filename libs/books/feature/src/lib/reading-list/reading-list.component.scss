@@ -5,14 +5,14 @@
   font-size: 0.75rem;
 }
 .reading-list {
-  padding: $spacing-xxs;
+  padding: $spacing-xxs;  
 }
-
 .reading-list-item {
   display: flex;
   justify-content: center;
   margin-bottom: $spacing-xs;
   width: 100%;
+  background-color: $gray20;
 
   > * {
     display: flex;

@@ -1,41 +1,46 @@
 <form [formGroup]="searchForm" (submit)="searchBooks()">
-  <mat-form-field floatLabel="never">
+  <mat-form-field floatLabel="never" appearance="outline">
+    <mat-label>Search for books</mat-label>
     <input
+    class="book-search-input"
       autoFocus
       matInput
       type="search"
+      aria-label="Search for books" 
       placeholder="Search for books to add to your reading list"
       formControlName="term"
     />
-    <button mat-icon-button matSuffix>
-      <mat-icon>search</mat-icon>
+    <button mat-icon-button aria-label="close" matSuffix>
+      <mat-icon title="search">search</mat-icon>
     </button>
   </mat-form-field>
 </form>
 
 <ng-container *ngIf="searchTerm; else empty">
   <div class="book-grid">
-    <div class="book" data-testing="book-item" *ngFor="let b of books">
+    <div class="book" data-testing="book-item" *ngFor="let book of books trackBy: trackById">
       <div class="book--title">
-        {{ b.title }}
+        <h2><strong>{{ book.title }} </strong></h2>
       </div>
       <div class="book--content">
         <div class="book--content--cover">
-          <img src="{{ b.coverUrl }}" />
+          <img src="{{ book.coverUrl }}" [title]="book.title" [alt]="book.title + ' cover'"/>
         </div>
         <div class="book--content--info">
-          <div><strong>Author:</strong> {{ b.authors.join(',') }}</div>
-          <div><strong>Publisher:</strong> {{ b.publisher }}</div>
+          <div><strong>Author:</strong> {{ book.authors.join(',') }}</div>
+          <div><strong>Publisher:</strong> {{ book.publisher }}</div>
           <div>
-            <strong>Published:</strong> {{ formatDate(b.publishedDate) }}
+            <strong>Published:</strong> {{ formatDate(book.publishedDate) }}
           </div>
-          <p [innerHTML]="b.description"></p>
+          <p [innerHTML]="book.description"></p>
           <div>
             <button
               mat-flat-button
               color="primary"
-              (click)="addBookToReadingList(b)"
-              [disabled]="b.isAdded"
+              (click)="addBookToReadingList(book)"
+              [disabled]="book.isAdded"
+              title="Want to Read" matTooltip="Want to Read"
+              aria-label="Add to reading list"
             >
               Want to Read
             </button>
