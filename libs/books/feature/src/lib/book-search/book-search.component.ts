@@ -9,6 +9,8 @@ import {
 } from '@tmo/books/data-access';
 import { FormBuilder } from '@angular/forms';
 import { Book } from '@tmo/shared/models';
+import { debounceTime } from 'rxjs/internal/operators/debounceTime';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'tmo-book-search',
@@ -32,9 +34,16 @@ export class BookSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.select(getAllBooks).subscribe(books => {
+    this.store.select(getAllBooks)
+    .subscribe(books => {
       this.books = books;
     });
+    this.searchForm.get('term')
+      .valueChanges.pipe(debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(() => {
+        this.searchBooks();
+      });
   }
 
   formatDate(date: void | string) {
@@ -61,5 +70,8 @@ export class BookSearchComponent implements OnInit {
   }
   trackById(index: number, book: Book) {
     return book.id; 
+  }
+  searchClose() {
+    this.searchForm.controls.term.setValue('');
   }
 }
