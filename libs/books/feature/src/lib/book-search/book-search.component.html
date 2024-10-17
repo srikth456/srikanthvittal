@@ -39,10 +39,10 @@
               color="primary"
               (click)="addBookToReadingList(book)"
               [disabled]="book.isAdded"
-              title="Want to Read" matTooltip="Want to Read"
-              aria-label="Add to reading list"
+              [title]="book.finished ? 'Finished' : 'Want to Read'" 
+              [attr.aria-label]="book.finished ? 'Finished' : 'Want to Read'"
             >
-              Want to Read
+            {{ book.finished ? 'Finished' : 'Want to Read' }}
             </button>
           </div>
         </div>
