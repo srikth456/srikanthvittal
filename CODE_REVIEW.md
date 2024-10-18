@@ -5,13 +5,12 @@ example: ── state/
                 ├── reducers/   
                 └── selectors/
 2. In books.action.ts file 
-searchBooksFailure functions error type should be more specific instaed of any,like creating interface error: { message: string; status: number, data:string }
+searchBooksFailure functions error type should be more specific instead of any,like creating interface error: { message: string; status: number, data:string }
   which helps in managing errors more effectively throughout your application.
 
 3. libs\books\data-access\src\lib\+state\reading-list.effects.ts
   Can use swicth map for handle multiple init action-
-4. Layout is not responsive but libs\books\feature\src\lib\book-search\book-search.component.html can use <ul> and <li> instaed of <div>
-5. Instant search is missing or else we can have related searches or links on typing
+4. Instant search is missing or else we can have related searches or links on typing
 5. Error Handling during the search and error message can be improved.
 
 Light House Issues
