@@ -52,7 +52,20 @@ const readingListReducer = createReducer(
   ),
   on(ReadingListActions.removeFromReadingList, (state, action) =>
     readingListAdapter.removeOne(action.item.bookId, state)
-  )
+  ),
+  on(ReadingListActions.finishedFromReadingList, (state, action) =>
+    readingListAdapter.upsertOne({
+      bookId:  action.item.bookId,
+      ...action.item
+    }, state)
+  ),
+  on(ReadingListActions.failedFinishedFromReadinglist, (state, action) => {
+    return {
+      ...state,
+      error: action.error
+    };
+  }),
+
 );
 
 export function reducer(state: State | undefined, action: Action) {

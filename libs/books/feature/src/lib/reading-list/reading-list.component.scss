@@ -6,24 +6,30 @@
 }
 .reading-list {
   padding: $spacing-xxs;  
+  background: $gray05;
+
 }
 .reading-list-item {
   display: flex;
   justify-content: center;
-  margin-bottom: $spacing-xs;
+  padding:$spacing-xs;
+  // margin-bottom: $spacing-xs;
   width: 100%;
-  background-color: $gray20;
-
+  border: 1px solid gray;  
+  border-left: 0;
+    border-right: 0;
+    border-top: 0;
   > * {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+  
 }
 
 .reading-list-item--cover {
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 80px;
+  max-height: 80px;
   margin-right: $spacing-xxs;
 }
 
@@ -38,6 +44,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  padding-bottom: $spacing-xxs;
 }
 
 .empty {
@@ -45,3 +52,24 @@
   font-size: 1rem;
   color: $gray60;
 }
+
+.finish {
+  color: $gray80;
+  font-size: 20px;
+}
+
+.finishDate {
+  color: $pink-very-dark;
+}
+.book-finish{
+  background-color: $pink-accent;
+  color: $white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  
+}
+.mat-icon-button.mat-warn{
+  color:$pink-accent;
+}
+

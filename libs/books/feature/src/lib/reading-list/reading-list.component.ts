@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { addToReadingList, getReadingList, removeFromReadingList } from '@tmo/books/data-access';
+import { addToReadingList, finishedFromReadingList, getReadingList, removeFromReadingList } from '@tmo/books/data-access';
+
 
 @Component({
   selector: 'tmo-reading-list',
@@ -21,4 +22,18 @@ export class ReadingListComponent {
     });
 
   }
+  formatDate(date: any) {
+    const d = new Date(date);
+    return d ? d.toDateString() : undefined;
+  }
+
+  finishFromReadingList(item) {
+    item = {
+      ...item,
+      finished: true,
+      finishedDate: new Date().toISOString(),
+    }
+    this.store.dispatch(finishedFromReadingList({ item }));
+  }
+
 }
