@@ -40,5 +40,4 @@ describe('When: I use the reading list feature', () => {
         .click()
       })
   });
-
 });
