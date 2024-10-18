@@ -43,7 +43,14 @@ export class BookSearchComponent implements OnInit {
     distinctUntilChanged())
     .subscribe(() => {
       this.searchBooks();
+
     });
+    this.searchForm.get('term')
+      .valueChanges.pipe(debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(() => {
+        this.searchBooks();
+      });
   }
 
   formatDate(date: void | string) {
