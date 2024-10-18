@@ -8,11 +8,11 @@ describe('ReadingListComponent', () => {
   let component: ReadingListComponent;
   let fixture: ComponentFixture<ReadingListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [BooksFeatureModule, SharedTestingModule]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ReadingListComponent);
