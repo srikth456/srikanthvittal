@@ -68,7 +68,6 @@ button:disabled{
   background-color: $gray05 !important;
   color: #c62d62 !important;
   opacity: 0.6;
-  cursor: not-allowed;
   
 }
 
@@ -93,5 +92,5 @@ button:disabled{
   font-size: 20px;
 }
 .mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
-  top: 0.08em;
+  top: 0.1em;
 }

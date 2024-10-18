@@ -43,7 +43,8 @@ export class BookSearchComponent implements OnInit {
     distinctUntilChanged())
     .subscribe(() => {
       this.searchBooks();
-  }
+  });
+}
 
   formatDate(date: void | string) {
     return date
